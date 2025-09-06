@@ -4,7 +4,7 @@ A web-based rhythm game inspired by Guitar Hero, built with TypeScript, RxJS, an
 
 ## Live Demo
 
-You can view the live demo of the website [here](https://NECROZMA04.github.io/ez-guitar-hero).
+You can view the live demo of the website [here](https://NECROZMA04.github.io/ez-guitar-hero/index.html).
 
 ## Features
 
