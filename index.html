@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+        
+      <script type="module" crossorigin src="/ez-guitar-hero/assets/main-2a045fb9.js"></script>
+      <link rel="stylesheet" href="/ez-guitar-hero/assets/index-68392525.css">
+    </head>
+    <body>
+        <h1>Guitar Hero</h1>
+        <h2>Feel The Music !!</h2>
+
+        <div id="mainContainer">
+            <main id="main" class="flex row">
+                <svg id="svgCanvas" viewBox="0 0 200 400">
+                    <defs>
+                        <radialGradient
+                            id="greenGradient"
+                            cx="50%"
+                            cy="50%"
+                            r="50%"
+                            fx="50%"
+                            fy="50%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="stop-color: #00ff00; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="70%"
+                                style="stop-color: #008800; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="100%"
+                                style="stop-color: #003300; stop-opacity: 1"
+                            />
+                        </radialGradient>
+                        <radialGradient
+                            id="redGradient"
+                            cx="50%"
+                            cy="50%"
+                            r="50%"
+                            fx="50%"
+                            fy="50%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="stop-color: #ff0000; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="70%"
+                                style="stop-color: #880000; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="100%"
+                                style="stop-color: #330000; stop-opacity: 1"
+                            />
+                        </radialGradient>
+                        <radialGradient
+                            id="blueGradient"
+                            cx="50%"
+                            cy="50%"
+                            r="50%"
+                            fx="50%"
+                            fy="50%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="stop-color: #0000ff; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="70%"
+                                style="stop-color: #000088; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="100%"
+                                style="stop-color: #000033; stop-opacity: 1"
+                            />
+                        </radialGradient>
+                        <radialGradient
+                            id="greyGradient"
+                            cx="50%"
+                            cy="50%"
+                            r="50%"
+                            fx="50%"
+                            fy="50%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="stop-color: #cccccc; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="70%"
+                                style="stop-color: #888888; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="100%"
+                                style="stop-color: #333333; stop-opacity: 1"
+                            />
+                        </radialGradient>
+                        <radialGradient
+                            id="yellowGradient"
+                            cx="50%"
+                            cy="50%"
+                            r="50%"
+                            fx="50%"
+                            fy="50%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="stop-color: #ffff00; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="70%"
+                                style="stop-color: #888800; stop-opacity: 1"
+                            />
+                            <stop
+                                offset="100%"
+                                style="stop-color: #333300; stop-opacity: 1"
+                            />
+                        </radialGradient>
+
+                    </defs>
+                    <audio
+                        id="audioPlayer"
+                        controls
+                        style="display: none"
+                    ></audio>
+
+                    <line
+                        x1="20%"
+                        y1="0"
+                        x2="20%"
+                        y2="90%"
+                        stroke="green"
+                        stroke-width="5"
+                    />
+                    <line
+                        x1="40%"
+                        y1="0"
+                        x2="40%"
+                        y2="90%"
+                        stroke="red"
+                        stroke-width="5"
+                    />
+                    <line
+                        x1="60%"
+                        y1="0"
+                        x2="60%"
+                        y2="90%"
+                        stroke="blue"
+                        stroke-width="5"
+                    />
+                    <line
+                        x1="80%"
+                        y1="0"
+                        x2="80%"
+                        y2="90%"
+                        stroke="yellow"
+                        stroke-width="5"
+                    />
+
+                    <circle
+                        cx="20%"
+                        cy="350"
+                        r="5%"
+                        fill="url(#greenGradient)"
+                        class="shadow"
+                    />
+                    <circle
+                        cx="40%"
+                        cy="350"
+                        r="5%"
+                        fill="url(#redGradient)"
+                        class="shadow"
+                    />
+                    <circle
+                        cx="60%"
+                        cy="350"
+                        r="5%"
+                        fill="url(#blueGradient)"
+                        class="shadow"
+                    />
+                    <circle
+                        cx="80%"
+                        cy="350"
+                        r="5%"
+                        fill="url(#yellowGradient)"
+                        class="shadow"
+                    />
+
+                    <g id="gameOver" visibility="hidden">
+                        <rect
+                            x="26"
+                            y="120"
+                            fill="white"
+                            height="48"
+                            width="149"
+                        ></rect>
+                        <text x="36" y="150">Game Over</text>
+                    </g>
+
+                </svg>
+
+                <div id="sideBar" class="flex col">
+                    <div id="info" class="flex col">
+                        <div class="text">
+                            <span class="left">Multiplier: </span>
+                            <span class="right" id="multiplierText">...</span>
+                        </div>
+                        <div class="text">
+                            <span class="left">Score: </span>
+                            <span class="right" id="scoreText">...</span>
+                        </div>
+                        <div class="text">
+                            <span class="left">Highscore: </span>
+                            <span class="right" id="highScoreText">...</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div id="controls">
+                <h4>Controls</h4>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div id="KeyQ" class="key">Q</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div id="KeyW" class="key">W</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div id="KeyE" class="key">E</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div id="KeyR" class="key">R</div>
+                        </td>
+                    </tr>
+                </table>
+                <button id="stopButton" class="styled-button">Stop</button>
+                <button id="startButton" class="styled-button">Start</button>
+                <input
+                    type="file"
+                    id="csvFileInput"
+                    class="styled-file-input"
+                    accept=".csv"
+                />
+            </div>
+        </div>
+        
+    </body>
+</html>
