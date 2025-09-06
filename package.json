@@ -1,5 +1,6 @@
 {
     "name": "assignment1",
+    "homepage": "https://NECROZMA04.github.io/ez-guitar-hero",
     "type": "module",
     "private": true,
     "scripts": {
@@ -7,11 +8,14 @@
         "test:ui": "vitest --ui",
         "test:run": "vitest run",
         "dev": "vite",
-        "build": "tsc && vite build"
+        "build": "tsc && vite build",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "devDependencies": {
         "@types/webmidi": "^2.0.10",
         "@vitest/ui": "^0.34.1",
+        "gh-pages": "^6.1.1",
         "typescript": "^5.1.6",
         "vite": "^4.2.0",
         "vite-plugin-checker": "^0.7.2",
